@@ -1,3 +1,4 @@
+#commands copied from https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 kubectl create  -f ./pod.json
 cat pod.json | kubectl create  -f -
 kubectl create  -f docker-registry.yaml --edit  -o json
