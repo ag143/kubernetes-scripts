@@ -40,38 +40,11 @@ namespace="$1"
 
 cluster_objects() {
 	echo -e "\e[44mCollecting Information from the Cluster:\e[21m"
-	deployments=$(kubectl get deployment --all-namespaces | grep -v NAMESPACE | wc -l)
-	pods=$(kubectl get po --all-namespaces | grep -v NAMESPACE | wc -l)
-	services=$(kubectl get svc --all-namespaces | grep -v NAMESPACE | wc -l)
-        ingresses=$(kubectl get ing --all-namespaces | grep -v NAMESPACE | wc -l)
-	statefulset=$(kubectl get statefulset --all-namespaces | grep -v NAMESPACE | wc -l)
-	postgresql=$(kubectl get postgresql --all-namespaces | grep -v NAMESPACE | wc -l)
-	daemonset=$(kubectl get daemonset --all-namespaces | grep -v NAMESPACE | wc -l)
-	replicaset=$(kubectl get rs --all-namespaces | grep -v NAMESPACE | wc -l)
-	serviceaccount=$(kubectl get sa --all-namespaces | grep -v NAMESPACE | wc -l)
-	storageclass=$(kubectl get sc --all-namespaces | grep -v NAMESPACE | wc -l)
-	PodDistrubtion=$(kubectl get pdb --all-namespaces | grep -v NAMESPACE | wc -l)
-	CustomResources=$(kubectl get crd --all-namespaces | grep -v NAMESPACE | wc -l)
-	cronjobs=$(kubectl get cronjobs --all-namespaces | grep -v NAMESPACE | wc -l)
-	persistancevolumes=$(kubectl get pv --all-namespaces | grep -v NAMESPACE | wc -l)
-	volumeclaims=$(kubectl get pvc --all-namespaces | grep -v NAMESPACE | wc -l)
-	hpa=$(kubectl get hpa --all-namespaces | grep -v NAMESPACE | wc -l)
-	echo -e "\e[1m\e[39mCluster Resources:\e[21m"
-	echo -e "${BLUE}"Deployments"                    :${GREEN}$deployments"
-	echo -e "${BLUE}"Services"                       :${GREEN}$services"
-	echo -e "${BLUE}"Ingresses"                      :${GREEN}$ingresses"
-	echo -e "${BLUE}"StatefulSets"                   :${GREEN}$statefulset"
-	echo -e "${BLUE}"Pods"                           :${GREEN}$pods"
-	echo -e "${BLUE}"DaemonSets"                     :${GREEN}$daemonset"
-	echo -e "${BLUE}"ReplicaSets"                    :${GREEN}$replicaset"
-	echo -e "${BLUE}"StorageClasses"                 :${GREEN}$storageclass"
-	echo -e "${BLUE}"CronJobs"                       :${GREEN}$cronjobs"
-	echo -e "${BLUE}"PostgreSQL"                     :${GREEN}$postgresql"
-	echo -e "${BLUE}"CustomResources"                :${GREEN}$CustomResources"
-	echo -e "${BLUE}"HorizontalPodAutoscaler"        :${GREEN}$hpa"
-	echo -e "${BLUE}"PersistanceVolumes"             :${GREEN}$persistancevolumes"
-	echo -e "${BLUE}"VolumeClaims"                   :${GREEN}$volumeclaims"
-
+ 	echo "Security Resources"
+  	echo "$(kubectl get clusterroles)"
+#  	clusterrole=$(kubectl get clusterroles)
+ 	
+	
 }
 
 cluster_nodes() {
