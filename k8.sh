@@ -37,10 +37,10 @@ kubectl config set-credentials kubeuser/foo.kubernetes.com --username=kubeuser -
 kubectl config set-context --current --namespace=ggckad-s2
 
 # set a context utilizing a specific username and namespace.
-kubectl config set-context gce --user=cluster-admin --namespace=foo \
-  && kubectl config use-context gce
+#kubectl config set-context gce --user=cluster-admin --namespace=foo \
+#  && kubectl config use-context gce
 
-kubectl config unset users.foo                       # delete user foo
+# kubectl config unset users.foo                       # delete user foo
 
 # short alias to set/show context/namespace (only works for bash and bash-compatible shells, current context to be set before using kn to set namespace)
 alias kx='f() { [ "$1" ] && kubectl config use-context $1 || kubectl config current-context ; } ; f'
